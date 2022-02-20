@@ -9,7 +9,7 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
-  steps:
+    steps:
     - uses: actions/checkout@v2
     - name: install NVM
       run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.30.0/install.sh | bash
