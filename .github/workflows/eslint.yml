@@ -9,14 +9,16 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
-  steps:
+    steps:
     - uses: actions/checkout@v2
     - name: install NVM
-      run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.30.0/install.sh | bash
-    - name: Install Node.js
+      run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    - name: Export
+      run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+    - name: Eval
       env: 
         NODE_VERSION: 14.17.0
-      run: nvm install $NODE_VERSION
+      run: eval "[ -f .nvmrc ] && nvm install"
     - name: Install deps
       run: npm install
     - name: Lint source code with ESLint
