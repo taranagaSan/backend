@@ -12,7 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install NVM
-      run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.30.0/install.sh | bash
+      run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    - name: Restart shell
+      run: . "$NVM_DIR/nvm.sh"
     - name: Install Node.js
       env: 
         NODE_VERSION: 14.17.0
